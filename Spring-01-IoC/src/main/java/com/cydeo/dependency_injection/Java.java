@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Java {
 
 
-    OfficeHours officeHours;
+    OfficeHours officeHours;  // this object is injected into Java
 
 
     /*
