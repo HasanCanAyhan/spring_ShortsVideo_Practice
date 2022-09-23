@@ -20,6 +20,11 @@ public class MainController {
         return "employees.html";
     }
 
+    @RequestMapping("/")
+    public String home(){
+
+        return "home.html";
+    }
 
 
 }
