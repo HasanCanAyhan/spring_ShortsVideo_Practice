@@ -10,5 +10,29 @@ Firstname : <h3 th:text="${emp.firstName}" style="color: red"></h3>
 Lastname : <h3 th:text="${emp.lastName}" style="color: yellow"></h3>
 Salary : <h3 th:text="${emp.salary}" style="color: gray"></h3>
 
+
+<h4 th:text="${'Hello ' + emp.firstName}"></h4>
+
+<a th:href="@{https://cydeo.com}">HOME PAGE</a>
+
+
+<!-- LINKS -->
+<a th:href="@{/employees}">Employee List</a> <!-- end point -->
+<br>
+<a th:href="@{/employees(name=Mike)}">ADD QUERY 1</a>
+<!-- end point here :  /employees?name=Mike -->
+<br>
+<a th:href="@{/employees(name=${emp.firstName})}">ADD QUERY 2</a>
+
+
+<!-- Conditional Logic -->
+
+<div th:text="${emp.salary > 100000 ? 'Cool' : 'OK'}"></div> <!-- ternary-->
+
+<div>
+  <span  th:if="${emp.firstName == 'Joe'}">Hi Joe!</span>
+  <span  th:unless="${emp.firstName == 'Joe'}">Hi Employee!</span>
+</div>
+
 </body>
 </html>
