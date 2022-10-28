@@ -2,9 +2,13 @@ package com.cydeo.controller;
 
 
 import com.cydeo.model.Employee;
+import com.github.javafaker.Faker;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -13,7 +17,17 @@ public class MainController {
     public String empList(Model model){
 
         //database,api,random data generator
-        model.addAttribute("name","TEST");
+        //model.addAttribute("name","Mike");
+
+
+        List<Employee> employeeList = new ArrayList<>();
+        Faker faker = new Faker();
+        employeeList.add(new Employee(faker.name().firstName(),faker.name().lastName(),faker.number().numberBetween(50000,140000)));
+        employeeList.add(new Employee(faker.name().firstName(),faker.name().lastName(),faker.number().numberBetween(50000,140000)));
+        employeeList.add(new Employee(faker.name().firstName(),faker.name().lastName(),faker.number().numberBetween(50000,140000)));
+        employeeList.add(new Employee(faker.name().firstName(),faker.name().lastName(),faker.number().numberBetween(50000,140000)));
+
+        model.addAttribute("employees", employeeList);
 
         return "employee-list.html";
     }
